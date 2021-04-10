@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-autofix": "^1.0.4",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.4",
+    "eslint-plugin-jest-dom": "^3.8.0",
+    "eslint-plugin-jest-formatting": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-security": "^1.4.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "esbuild-loader": "^2.9.2",
+    "eslint": "^7.24.0",
+    "eslint-plugin-react": "^7.23.2"
+  }
+}
