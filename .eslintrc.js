@@ -13,28 +13,36 @@ module.exports = {
   ],
   plugins: [
     'autofix',
-    'react'
+    'react',
+    'import',
+    '@typescript-eslint'
   ],
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
-    node: false,
+    node: true,
     es2020: true
   },
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: { jsx: true },
-    project: [
-      './tsconfig.json'
-    ]
-
+    project: './tsconfig.json'
   },
   rules: {
+
     'autofix/array-element-newline': [
       'error',
-      'consistent'
+      {
+        multiline: true,
+        minItems: 2
+      }
     ],
     'autofix/array-bracket-newline': [
-      'error', 'consistent'
+      'error',
+      {
+        multiline: true,
+        minItems: 2
+      }
     ],
 
     'autofix/arrow-body-style': [
@@ -71,9 +79,7 @@ module.exports = {
       'error',
       'always'
     ],
-    'autofix/prefer-template': [
-      'error'
-    ],
+    'autofix/prefer-template': ['error'],
     '@typescript-eslint/no-unused-vars': 'off',
     'autofix/no-unused-vars': [
       'error',
@@ -103,7 +109,7 @@ module.exports = {
       'error',
       {
         ImportDeclaration: {
-          multiline: true,
+          multiline: false,
           minProperties: 2
         },
         ExportDeclaration: 'never'
@@ -113,30 +119,58 @@ module.exports = {
       'error',
       'always'
     ],
-    'autofix/indent': [
-      'error',
-      2
-    ],
+
     'autofix/lines-around-comment': [
       'error',
       { beforeBlockComment: true }
     ],
-    'autofix/no-debugger': 'error',
-    'autofix/newline-after-var': ['error', 'always'],
+    'autofix/no-debugger': 'off',
+    'autofix/newline-after-var': [
+      'error',
+      'always'
+    ],
     'autofix/object-property-newline': 'error',
-
+    'import/newline-after-import': [
+      'error',
+      { count: 1 }
+    ],
+    'import/no-duplicates': 'off',
+    'import/no-absolute-path': 'off',
     // react
 
     // React v17 is no need Default import.
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
 
-    'react/jsx-indent-props': ['error', 2],
-    'react/jsx-max-props-per-line': ['error', {
-      maximum: 1,
-      when: 'always'
-    }]
+    'react/jsx-indent-props': [
+      'error',
+      2
+    ],
+    'react/jsx-max-props-per-line': [
+      'error',
+      {
+        when: 'multiline'
+      }
+    ],
+    'react/prop-types': 'off'
   },
-  settings: { react: { version: 'detect' } }
-
+  settings: {
+    react: { version: 'detect' },
+    'import/extensions': [
+      '.ts',
+      '.tsx'
+    ],
+    'import/resolver': {
+      typescript: {}
+    }
+  },
+  ignorePatterns: [
+    '*.config.js',
+    '*-env*',
+    '**/dist/**',
+    'app/**',
+    'build/**',
+    'storybook/**',
+    'example-project/**'
+  ]
 }
